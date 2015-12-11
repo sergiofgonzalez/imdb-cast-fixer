@@ -90,11 +90,6 @@ module.exports = function(grunt) {
         tasks: ["copy:css_debug"]
       },
 
-      lint_client: {
-        files: ["/public/js/**/*.js"],
-        tasks: ["jshint:client"]
-      },
-
       rebuild: {
         files: ["Gruntfile.js"],
         tasks: ["jshint:build", "build:debug"]
