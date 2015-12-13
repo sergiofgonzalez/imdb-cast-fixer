@@ -16,7 +16,8 @@ module.exports = function(grunt) {
     },
 
     clean : {
-      build: "build"
+      build: ["build", ".tmp"],
+      tmp: ".tmp"
     },
 
     jshint: {
@@ -41,9 +42,9 @@ module.exports = function(grunt) {
         dest: "build"
       },
 
-      html_debug: {
+      html: {
         expand: true,
-        cwd: "public/views",
+        cwd: "public",
         src: "**/*.html",
         dest: "build"
       },
@@ -60,7 +61,8 @@ module.exports = function(grunt) {
         cwd: "public/js",
         src: "**/*.js",
         dest: "build/js"
-      }
+      },
+
     },
 
     watch: {
@@ -81,8 +83,8 @@ module.exports = function(grunt) {
       },
 
       html: {
-        files: ["public/views/**/*.html"],
-        tasks: ["copy:html_debug"]
+        files: ["public/**/*.html"],
+        tasks: ["copy:html"]
       },
 
       css: {
@@ -94,20 +96,59 @@ module.exports = function(grunt) {
         files: ["Gruntfile.js"],
         tasks: ["jshint:build", "build:debug"]
       }
+    },
+
+    useminPrepare: {
+      html: "public/index.html",
+      options: {
+        dest: "build"
+      }
+    },
+
+    filerev: {
+      options: {
+        algorithm: "md5",
+        length: 8
+      },
+      release: {
+        src: [
+          "build/js/**/*.js",
+          "build/css/*.css",
+          "build/*.ico"
+        ]
+      }
+    },
+
+    usemin: {
+      html: ["build/**/*.html"],
+      css: ["build/css/*.css"],
+      options: {
+        assetsDir: ["build"]
+      }
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-filerev");
+  grunt.loadNpmTasks("grunt-usemin");
 
 
-  grunt.registerTask("build:debug", "lint and compile", ["clean", "jshint", "copy:favicon", "copy:html_debug", "copy:js_debug", "copy:css_debug"]);
-  grunt.registerTask("dev", "development mode", ["build:debug", "serve"]);
-  grunt.registerTask("serve", function() {
+  /* debug tasks */
+  grunt.registerTask("build:debug", "Prepares a `debug` build in `/build`", ["clean", "jshint", "copy:favicon", "copy:html", "copy:js_debug", "copy:css_debug"]);
+  grunt.registerTask("dev", "Continuous development mode", ["build:debug", "serve"]);
+  grunt.registerTask("serve:debug", "Set up a static HTTP server for continuous development", function() {
     grunt.log.ok("running `serve` task...");
     grunt.task.run(["build:debug", "connect:server", "watch"]);
   });
+
+  /* release tasks */
+  grunt.registerTask("build:release", "Prepares a `release` build in `/build`", ["clean", "jshint", "useminPrepare", "concat:generated", "cssmin:generated", "uglify:generated", "copy:html", "filerev", "usemin", "clean:tmp"]);
+
 };
