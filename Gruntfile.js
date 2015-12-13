@@ -153,5 +153,5 @@ module.exports = function(grunt) {
 
   /* release tasks */
   grunt.registerTask("build:release", "Prepares a `release` build in `/build`", ["clean", "jshint", "useminPrepare", "concat:generated", "cssmin:generated", "uglify:generated", "copy:html", "filerev", "usemin", "clean:tmp"]);
-  grunt.registerTask("heroku", ["build:debug"]);
+  grunt.registerTask("heroku", ["build:release"]);
 };
