@@ -24,10 +24,9 @@ Jeff Goldblum...Dr. Ian Malcolm
 
 # ToDo backlog
 
-1. Add build flow for release (local)
-2. Deploy to Heroku
-3. Upload to GitHub
-4. Link Heroku to GitHub repo
-5. Improve error reporting: no `alert`, use Bootstrap panel instead
-6. Remove fix button (automatic transformation)
-7. Make the icon transparent (maybe i have a transparent version somewhere).
+1. Link Heroku to GitHub repo
+2. Improve error reporting: no `alert`, use Bootstrap panel instead
+3. Remove fix button (automatic transformation)
+4. Make the icon transparent (maybe i have a transparent version somewhere).
+5. Trim initial space that may be found in the input
+6. Favicon not displayed on Heroku endpoint.
