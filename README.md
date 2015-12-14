@@ -1,5 +1,5 @@
-IMDb Cast Fixer
-===============
+# IMDb Cast Fixer [![Build Status](https://travis-ci.org/sergiofgonzalez/imdb-cast-fixer.svg?branch=master)](https://travis-ci.org/sergiofgonzalez/imdb-cast-fixer)
+
 > Parses and formats text pasted from the cast of IMDb
 
 IMDb Cast Fixer is a very simple application in which you can paste text from IMDb full credits page and correctly formats it.
