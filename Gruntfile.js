@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       favicon: {
         expand: true,
         cwd: "public",
-        src: "favicon.ico",
+        src: "favicon.png",
         dest: "build"
       },
 
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
         src: [
           "build/js/**/*.js",
           "build/css/*.css",
-          "build/*.ico"
+          "build/favicon.png"
         ]
       }
     },
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
   });
 
   /* release tasks */
-  grunt.registerTask("build:release", "Prepares a `release` build in `/build`", ["clean", "jshint", "useminPrepare", "concat:generated", "cssmin:generated", "uglify:generated", "copy:html", "filerev", "usemin", "clean:tmp"]);
+  grunt.registerTask("build:release", "Prepares a `release` build in `/build`", ["clean", "jshint", "useminPrepare", "concat:generated", "cssmin:generated", "uglify:generated", "copy:html", "copy:favicon", "filerev", "usemin", "clean:tmp"]);
   grunt.registerTask("heroku", ["build:release"]);
 
   /* continuous integration tasks */
