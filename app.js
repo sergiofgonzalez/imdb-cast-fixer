@@ -48,5 +48,6 @@ function getResponseHeaders(filename) {
     default:
       headersHolder = {encoding: "utf8"};
   }
+  logger.debug("response headers for " + filename + ": ", headersHolder);
   return headersHolder;
 }
