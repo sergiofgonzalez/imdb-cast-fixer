@@ -28,5 +28,6 @@ Jeff Goldblum...Dr. Ian Malcolm
 2. Improve error reporting: no `alert`, use Bootstrap panel instead
 3. Remove fix button (automatic transformation)
 4. Make the icon transparent (maybe i have a transparent version somewhere).
-5. Trim initial space that may be found in the input
 6. Favicon not displayed on Heroku endpoint.
+7. Where are the unit tests?
+8. Add node log framework

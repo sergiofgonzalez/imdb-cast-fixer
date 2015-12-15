@@ -63,7 +63,7 @@ function getCast(textCutFromImdb) {
         };
     }
 
-    var castEntries = extractCastEntryLines(textCutFromImdb);
+    var castEntries = extractCastEntryLines(textCutFromImdb.trim());
     var cast = [];
     castEntries.forEach(function(castEntry, index) {
         console.log("parsing element #" + index);
