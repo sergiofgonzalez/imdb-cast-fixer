@@ -145,7 +145,7 @@ module.exports = function(grunt) {
 
   /* debug tasks */
   grunt.registerTask("build:debug", "Prepares a `debug` build in `/build`", ["clean", "jshint", "copy:favicon", "copy:html", "copy:js_debug", "copy:css_debug"]);
-  grunt.registerTask("dev", "Continuous development mode", ["build:debug", "serve"]);
+  grunt.registerTask("dev", "Continuous development mode", ["build:debug", "serve:debug"]);
   grunt.registerTask("serve:debug", "Set up a static HTTP server for continuous development", function() {
     grunt.log.ok("running `serve` task...");
     grunt.task.run(["build:debug", "connect:server", "watch"]);
