@@ -13,7 +13,8 @@ input.addEventListener("input", function() {
   btn.disabled = input.value.length === 0;
 });
 
-btn.addEventListener("click", function() {
+btn.addEventListener("click", function(event) {
+  event.preventDefault();
   try {
     output.value = getCastAsFormattedString(input.value);
   } catch (e) {
