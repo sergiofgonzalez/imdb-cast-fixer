@@ -27,4 +27,4 @@ Jeff Goldblum...Dr. Ian Malcolm
 1. Link Heroku to GitHub repo
 2. Improve error reporting: no `alert`, use Bootstrap panel instead
 3. Remove fix button (automatic transformation)
-4. Where are the unit tests?
+4. Where are the unit tests? Using tape
