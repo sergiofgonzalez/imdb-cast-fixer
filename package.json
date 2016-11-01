@@ -30,6 +30,7 @@
     "jshint-stylish": "2.2.1"
   },
   "dependencies": {
+    "grunt-cli": "1.2.0",
     "log4js": "0.6.38"
   }
 }
