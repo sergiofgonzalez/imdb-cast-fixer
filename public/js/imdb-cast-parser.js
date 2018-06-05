@@ -34,16 +34,7 @@ var currentEntry;
 function getCast(textCutFromImdb) {
     function extractCastEntryLines(text) {
         var castLines = text.split(/\n/);
-        var castEntryLines = [];
-        var castEntry;
-        castLines.forEach(function(line, index) {
-            if (index % 2 === 0) {
-                castEntry = line;
-            } else {
-                castEntryLines.push(castEntry + line);
-            }
-        });
-        return castEntryLines;
+        return castLines;
     }
 
     function parseEntry(castEntry) {
