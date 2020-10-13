@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Parses pasted text from IMDB cast",
   "engines": {
-    "node": "4.6.0"
+    "node": "14.x.x"
   },
   "repository": {
     "type": "git",
