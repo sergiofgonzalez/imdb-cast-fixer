@@ -2,9 +2,6 @@
   "name": "imdb-cast-fixer",
   "version": "0.0.0",
   "description": "Parses pasted text from IMDB cast",
-  "engines": {
-    "node": "14.x.x"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sergiofgonzalez/js-application-design.git"
