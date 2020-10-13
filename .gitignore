@@ -1,3 +1,8 @@
 node_modules
-build
-.tmp
+.vscode/*
+!.vscode/launch.json
+.nyc_output
+coverage
+*.pem
+scripts/bkp/*
+.env

@@ -1,33 +1,53 @@
 {
   "name": "imdb-cast-fixer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Parses pasted text from IMDB cast",
+  "main": "./bin/www",
+  "engines": {
+    "node": "14.x.x",
+    "npm": "6.14.x"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sergiofgonzalez/js-application-design.git"
+    "url": "https://github.com/sergiofgonzalez/imdb-cast-fixer.git"
   },
   "keywords": [],
   "author": {
     "name": "Sergio F. Gonzalez",
     "email": "sergio.f.gonzalez@gmail.com"
   },
-  "license": "ISC",
+  "config": {
+    "debugModules": ""
+  },
+  "license": "MIT",
   "devDependencies": {
-    "grunt": "1.0.1",
-    "grunt-contrib-clean": "1.0.0",
-    "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-connect": "1.0.2",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-cssmin": "1.0.2",
-    "grunt-contrib-jshint": "1.0.0",
-    "grunt-contrib-uglify": "2.0.0",
-    "grunt-contrib-watch": "1.0.0",
-    "grunt-filerev": "2.3.1",
-    "grunt-usemin": "3.1.1",
-    "jshint-stylish": "2.2.1"
+    "babel-eslint": "10.1.0",
+    "eslint": "7.7.0",
+    "supertest": "4.0.2",
+    "tap": "14.10.8"
   },
   "dependencies": {
-    "grunt-cli": "1.2.0",
-    "log4js": "0.6.38"
+    "compression": "1.7.4",
+    "debug": "4.1.1",
+    "dotenv": "8.2.0",
+    "ejs": "3.1.5",
+    "express": "4.17.1",
+    "helmet": "4.1.0",
+    "http-errors": "1.8.0",
+    "joi": "17.2.1",
+    "morgan": "1.10.0",
+    "on-headers": "1.0.2",
+    "serve-favicon": "2.5.0",
+    "winston": "3.3.3"
+  },
+  "scripts": {
+    "setup": "rm -rf node_modules package-lock.json .nyc_output && npm install",
+    "prestart": "npm run lint",
+    "start": "DEBUG=${DEBUG:-$npm_package_config_debugModules} node app/src/${npm_package_main}",
+    "lint": "node_modules/.bin/eslint app/src/",
+    "test": "LOGGER_LEVEL='error' tap --bail --timeout=120 --coverage-report=lcov app/tst",
+    "predebug": "npm run lint",
+    "debug": "node --inspect app/src/${npm_package_main}",
+    "freshen-deps": "./scripts/freshen.sh"
   }
 }
