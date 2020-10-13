@@ -8,4 +8,7 @@ This section contains the changes that have not been released yet.
 
 ## [0.1.0] - 2020-10-13
 ## Added
-+ Added changelog
++ Added changelog :)
+
+## Changed
++ Updated application template to use Express and modern methods

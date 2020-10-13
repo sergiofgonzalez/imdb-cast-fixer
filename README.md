@@ -22,9 +22,14 @@ Laura Dern...Dr. Ellie Sattler
 Jeff Goldblum...Dr. Ian Malcolm
 ```
 
-# ToDo backlog
+## Deploying and SCM
 
-1. Link Heroku to GitHub repo
-2. Improve error reporting: no `alert`, use Bootstrap panel instead
-3. Remove fix button (automatic transformation)
-4. Where are the unit tests? Using tape
+The repo is deployed both to GitHub and Heroku repos through differentiated *git remotes* (`origin` and `heroku`).
+
+### Deploying to Heroku
+
+Run:
+
+```bash
+$ git push heroku master
+```
