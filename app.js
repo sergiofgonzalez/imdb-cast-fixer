@@ -51,3 +51,5 @@ function getResponseHeaders(filename) {
   logger.debug("response headers for " + filename + ": ", headersHolder);
   return headersHolder;
 }
+
+logger.debug('app started');
